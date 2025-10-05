@@ -29,12 +29,11 @@ RESPONSE_STATUS = Counter(
 )
 
 
-# --- env & config ---
-load_dotenv()  # reads .env in project root
+load_dotenv()  
 
 HF_ENDPOINT_URL = os.getenv("HF_ENDPOINT_URL")
 HF_API_TOKEN    = os.getenv("HF_API_TOKEN")
-API_KEYS        = set((os.getenv("API_KEYS") or "").split(","))  # e.g. API_KEYS=dev_test_key_123
+API_KEYS        = set((os.getenv("API_KEYS") or "").split(","))  
 
 if not HF_ENDPOINT_URL or not HF_API_TOKEN:
     raise RuntimeError("HF_ENDPOINT_URL or HF_API_TOKEN missing. Check your .env")
@@ -62,7 +61,7 @@ app.state.limiter = limiter
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten later to your domains
+    allow_origins=["*"], 
     allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Authorization", "X-API-Key", "Content-Type"],
@@ -82,7 +81,7 @@ async def metrics_middleware(request: Request, call_next):
     finally:
         elapsed = time.perf_counter() - start
         REQUEST_LATENCY.labels(path, method).observe(elapsed)
-        # status might not exist if an exception occurred before response creation
+        
         try:
             RESPONSE_STATUS.labels(path, method, str(status)).inc()
         except Exception:
@@ -137,7 +136,6 @@ async def generate(request: Request,
         "Accept": "application/json",
     }
 
-    # simple retries for warm-up/transient 5xx
     for attempt in range(3):
         try:
             async with httpx.AsyncClient(timeout=90) as client:
