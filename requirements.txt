@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+httpx
+pydantic
+python-dotenv
+slowapi
+limits
+prometheus-client
+huggingface_hub
+transformers
