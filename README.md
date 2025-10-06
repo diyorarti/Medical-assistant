@@ -91,7 +91,7 @@ git clone https://github.com/diyorarti/medical-assistant.git
 cd medical-assistant
 
 # Build Docker image
-docker build -t medical-assistant .
+docker build -t medical-assistant-api:latest .
 
 # Run container
-docker run -p 8000:8000 medical-assistant
+docker run --rm --env-file .env -e PORT=9000 -p 9010:9000 medical-assistant-api:latest
