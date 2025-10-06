@@ -73,7 +73,7 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
 
 ## 📸 Screenshot
 
-![Swagger UI Screenshot](23e9bea2-905e-486b-9ee3-5209fafb65e0.png)
+![Swagger UI Screenshot](src/assets/api.png)
 
 ---
 
