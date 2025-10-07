@@ -64,7 +64,7 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
    🔗 [Model Link](https://huggingface.co/diyorarti/med-mixed-merged)
 
 2. Model hosted on Hugging Face Inference Endpoints  
-   🔗 [Inference Endpoint](https://endpoints.huggingface.com)
+   🔗 [Inference Endpoint]()
 
 3. Production API developed using **FastAPI** and **Docker**, deployed to **Render**  
    🔗 [Live API](https://medical-assistant-a16a.onrender.com)
