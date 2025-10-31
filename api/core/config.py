@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     API_VERSION:str = "0.1.0"
 
     # Hugging Face
-    HF_ENDPOINT: str = os.getenv("HF_ENDPOINT_URL", "")
+    HF_ENDPOINT: str ="https://u8hxw751s4q6eqhs.eu-west-1.aws.endpoints.huggingface.cloud"
     HF_TOKEN: str = os.getenv("HF_API_TOKEN", "")
 
     # HTTP client defaults
@@ -27,6 +27,6 @@ class Settings(BaseSettings):
     retry_attempts: int = int(os.getenv("RETRY_ATTEMPTS", "3"))
 
     # Simple API key
-    API_KEY: str = os.getenv("API_KEY")
+    API_KEY: str | None = os.getenv("API_KEY")
 
 settings = Settings()
