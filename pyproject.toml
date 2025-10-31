@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project] 
+name = "medical-assistant"
+version = "0.1.0"
+description = "Production-ready Fine-Tuned-LLM API"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Diyorbek Tirkashov" }]
+
+
+dependencies = [
+    "fastapi==0.115.0",
+    "uvicorn[standard]==0.30.1",
+    "httpx==0.27.2",
+    "pydantic==2.9.0",
+    "python-dotenv==1.0.1",
+    "slowapi==0.1.9",
+    "limits==3.13.0",
+    "prometheus-client==0.21.0",
+    "huggingface_hub==0.26.2",
+    "transformers==4.45.1"
+]
