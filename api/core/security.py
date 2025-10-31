@@ -1,7 +1,7 @@
 from fastapi import Header, HTTPException, status
 from .config import settings
 
-API_KEY = settings.api_key
+API_KEY = settings.API_KEY
 
 def verify_api_key(x_api_key: str = Header(...)):
     if x_api_key != API_KEY:

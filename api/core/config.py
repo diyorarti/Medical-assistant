@@ -22,6 +22,10 @@ class Settings(BaseSettings):
     HF_ENDPOINT: str = os.getenv("HF_ENDPOINT_URL", "")
     HF_TOKEN: str = os.getenv("HF_API_TOKEN", "")
 
+    # HTTP client defaults
+    httpx_timeout_seconds: int = int(os.getenv("HTTPX_TIMEOUT_SECONDS", "90"))
+    retry_attempts: int = int(os.getenv("RETRY_ATTEMPTS", "3"))
+
     # Simple API key
     API_KEY: str = os.getenv("API_KEY")
 
