@@ -1,7 +1,7 @@
 # 🧠 Medical Assistant API
 
 An intelligent **Medical Assistant** powered by a fine-tuned **Large Language Model (LLM)** that helps users answer medical-related questions with **reasoning-based explanations**.  
-The model is fine-tuned on the [*FreedomIntelligence/medical-o1-reasoning-SFT*](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as a production-ready API.
+The model is fine-tuned on the [*FreedomIntelligence/medical-o1-reasoning-SFT*](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com).
 
 ---
 
