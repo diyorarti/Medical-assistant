@@ -91,7 +91,12 @@ git clone https://github.com/diyorarti/medical-assistant.git
 cd medical-assistant
 
 # Build Docker image
-docker build -t medical-assistant-api:latest .
+```bash
+docker build -t medical-llm-api:latest .
+```
 
 # Run container
-docker run --rm --env-file .env -e PORT=9000 -p 9010:9000 medical-assistant-api:latest
+```bash
+docker run --rm -p 8000:8000 -e HF_API_TOKEN=hf_******************************** -e API_KEY=****** medical-llm-api:latest
+```
+
