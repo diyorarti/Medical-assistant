@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends
-from api.core.config import settings
 from api.schemas.models import ChatRequest, ChatCompletionResponse, ChatChoice, ChatChoiceMessage
 from api.services.hf_client import hf_client
 from api.core.security import verify_api_key
