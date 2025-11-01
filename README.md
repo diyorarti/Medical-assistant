@@ -1,7 +1,7 @@
 # 🧠 Medical Assistant API
 
 An intelligent **Medical Assistant** powered by a fine-tuned **Large Language Model (LLM)** that helps users answer medical-related questions with **reasoning-based explanations**.  
-The model is fine-tuned on the [*FreedomIntelligence/medical-o1-reasoning-SFT*](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com).
+[The Med-Assistant](https://huggingface.co/diyorarti/med-mixed-merged) is fine-tuned on the [*FreedomIntelligence/medical-o1-reasoning-SFT*](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com).
 
 ---
 
@@ -48,13 +48,12 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
 | Method | Endpoint | Description |
 |--------|-----------|-------------|
 | `GET` | `/` | Home |
-| `GET` | `/metrics` | API metrics |
+| `GET` | `/health` | Health check |
 | `POST` | `/v1/generate` | Generate model output |
 | `POST` | `/v1/chat/completions` | Chat completion endpoint |
-| `GET` | `/healthz` | Health check |
 
 📘 **Swagger Documentation:**  
-👉 [View API Docs](https://medical-assistant-a16a.onrender.com/docs)
+👉 [View API Docs](https://medical-assistant-c3n1.onrender.com/docs)
 
 ---
 
