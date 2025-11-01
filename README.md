@@ -74,7 +74,6 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
 
 ![Swagger UI Screenshot](assets/render-api.png)
 ![Swagger UI Screenshot](assets/running-local.png)
-![Swagger UI Screenshot](assets/endpoint.png)
 ![Swagger UI Screenshot](assets/api-generate-endpoint.png)
 ![Swagger UI Screenshot](assets/api-chat-completion-endpoint.png)
 
