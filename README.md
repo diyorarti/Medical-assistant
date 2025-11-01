@@ -97,3 +97,5 @@ docker build -t medical-llm-api:latest .
 docker run --rm -p 8000:8000 -e HF_API_TOKEN=hf_******************************** -e API_KEY=****** medical-llm-api:latest
 ```
 
+### NOTE
+I have Paused HF-Endpoint, API generates when HF-Endpoint is on
