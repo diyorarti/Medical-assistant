@@ -66,28 +66,27 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
    🔗 [Inference Endpoint]()
 
 3. Production API developed using **FastAPI** and **Docker**, deployed to **Render**  
-   🔗 [Live API](https://medical-assistant-a16a.onrender.com)
+   🔗 [Live API](https://medical-assistant-c3n1.onrender.com)
 
 ---
 
 ## 📸 Screenshot
 
-![Swagger UI Screenshot](src/assets/api.png)
+![Swagger UI Screenshot](assets/render-api.png)
+![Swagger UI Screenshot](assets/running-local.png)
+![Swagger UI Screenshot](assets/endpoint.png)
+![Swagger UI Screenshot](assets/api-generate-endpoint.png)
+![Swagger UI Screenshot](assets/api-chat-completion-endpoint.png)
 
 ---
 
-## 📊 Results
-
-*Performance metrics will be added soon.*
-
----
 
 ## 🧰 Installation & Setup (for local run)
 
 ```bash
 # Clone the repository
-git clone https://github.com/diyorarti/medical-assistant.git
-cd medical-assistant
+git clone https://github.com/diyorarti/Medical-assistant.git
+cd Medical-assistant
 
 # Build Docker image
 ```bash
