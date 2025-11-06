@@ -39,6 +39,89 @@ This combination helps the model balance concise answers with deeper reasoning c
 - **Fine-tuned model:** [diyorarti/med-mixed-merged](https://huggingface.co/diyorarti/med-mixed-merged)
 ---
 
+---
+
+## 📊 Model Performance & Evaluation
+
+This section presents how the fine-tuned **Medical Assistant LLM** was trained, tracked, and evaluated using **TensorBoard** and **Weights & Biases (wandb)**.
+
+---
+
+### 🧠 Evaluation Platforms
+
+| Tool | Purpose | Access |
+|------|----------|--------|
+| **TensorBoard** | Local visualization of loss curves and training dynamics | Run `tensorboard --logdir fine-tuned-LLM/runs` |
+| **Weights & Biases (W&B)** | Cloud-based experiment tracking and metrics comparison | [View W&B Dashboard → diyor/huggingface](https://wandb.ai/diyor/huggingface) |
+
+---
+
+### ⚙️ Training Configuration
+
+| Parameter | Value |
+|------------|--------|
+| **Base Model** | Qwen/Qwen2.5-3B-Instruct |
+| **Dataset** | FreedomIntelligence/medical-o1-reasoning-SFT |
+| **Fine-tuning Method** | LoRA (via PEFT) |
+| **Epochs** | 1 |
+| **Batch Size (per device)** | 8 |
+| **Gradient Accumulation Steps** | 4 |
+| **Learning Rate** | 2e-4 |
+| **Warmup Ratio** | 0.05 |
+| **Scheduler** | Cosine |
+| **Mixed Precision** | bf16 |
+| **Optimizer** | AdamW |
+| **Reporting Tools** | TensorBoard, Weights & Biases |
+
+---
+
+### 📈 Evaluation Metrics
+
+| Metric | Description | Observation |
+|---------|--------------|--------------|
+| **eval/loss** | Cross-entropy loss on validation set | Decreased steadily throughout training |
+| **eval/mean_token_accuracy** | Token-level prediction accuracy | Gradually improved per step |
+| **eval/runtime** | Time (s) per evaluation step | ~100–120 seconds |
+| **eval/samples_per_second** | Processing throughput | ~25–30 samples/sec |
+| **eval/steps_per_second** | Step speed during evaluation | ~3–4 steps/sec |
+
+> 🔹 Metrics logged and visualized through **wandb.ai** during training runs.  
+> *(Example run: `balmy-sun-20` in Diyorarti’s workspace)*
+
+---
+
+### 📊 Visualization Examples
+
+You can include screenshots from your wandb dashboard (exported as `.png`) under the `assets/metrics/` directory:
+
+| Metric | Visualization |
+|---------|----------------|
+| **Training Loss vs Steps** | ![Training Loss](assets/metrics/train_loss.png) |
+| **Eval Loss vs Steps** | ![Eval Loss](assets/metrics/eval_loss.png) |
+| **Eval Accuracy** | ![Eval Accuracy](assets/metrics/eval_accuracy.png) |
+
+---
+
+### 💡 Insights
+
+- The model achieved **stable convergence** after one epoch.
+- **Loss** decreased continuously, showing effective fine-tuning.
+- **Token accuracy** and **reasoning quality** improved over steps.
+- LoRA fine-tuning yielded **efficient memory usage** and **fast adaptation** on the medical reasoning dataset.
+
+---
+
+### 🧭 How to Reproduce
+
+```bash
+# View local training metrics
+tensorboard --logdir fine-tuned-LLM
+
+# Or check online experiment logs
+# (requires your W&B account)
+open https://wandb.ai/diyor/huggingface
+```
+
 ## 🔄 How the API Works
 
 The Medical Assistant API connects a FastAPI backend with a fine-tuned Large Language Model (LLM) hosted on Hugging Face.
