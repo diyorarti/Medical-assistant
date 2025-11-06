@@ -86,8 +86,9 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 
 ### 🧭 How to Reproduce
 **Wandb**
+open following url
 ```bash
-open https://wandb.ai/diyor/huggingface
+https://wandb.ai/diyor/huggingface
 ```
 
 ## 🔄 How the API Works
