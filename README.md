@@ -91,34 +91,20 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 ---
 
 ### 📊 Visualization Examples
-
-You can include screenshots from your wandb dashboard (exported as `.png`) under the `assets/metrics/` directory:
-
-| Metric | Visualization |
-|---------|----------------|
-| **Training Loss vs Steps** | ![Training Loss](assets/metrics/train_loss.png) |
-| **Eval Loss vs Steps** | ![Eval Loss](assets/metrics/eval_loss.png) |
-| **Eval Accuracy** | ![Eval Accuracy](assets/metrics/eval_accuracy.png) |
-
----
-
-### 💡 Insights
-
-- The model achieved **stable convergence** after one epoch.
-- **Loss** decreased continuously, showing effective fine-tuning.
-- **Token accuracy** and **reasoning quality** improved over steps.
-- LoRA fine-tuning yielded **efficient memory usage** and **fast adaptation** on the medical reasoning dataset.
+[**Evaluation Metrics**](assets/metrics/evals.png)
+[**Evaluation Metrics**](assets/metrics/evals1.png)
 
 ---
 
 ### 🧭 How to Reproduce
 
+### Tensorboard
 ```bash
 # View local training metrics
 tensorboard --logdir fine-tuned-LLM
-
-# Or check online experiment logs
-# (requires your W&B account)
+```
+### Wandb 
+```bash
 open https://wandb.ai/diyor/huggingface
 ```
 
