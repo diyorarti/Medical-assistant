@@ -63,7 +63,7 @@ The following visualizations summarize the model’s **evaluation metrics**, **t
 | **Scheduler** | Cosine |
 | **Mixed Precision** | bf16 |
 | **Optimizer** | AdamW |
-| **Reporting Tools** | TensorBoard, Weights & Biases |
+| **Reporting Tool** | wandb.ai  |
 
 ---
 
