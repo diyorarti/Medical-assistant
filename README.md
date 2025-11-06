@@ -43,17 +43,7 @@ This combination helps the model balance concise answers with deeper reasoning c
 
 ## 📊 Model Performance & Evaluation
 
-This section presents how the fine-tuned **Medical Assistant LLM** was trained, tracked, and evaluated using **TensorBoard** and **Weights & Biases (wandb)**.
-
----
-
-### 🧠 Evaluation Platforms
-
-| Tool | Purpose | Access |
-|------|----------|--------|
-| **TensorBoard** | Local visualization of loss curves and training dynamics | Run `tensorboard --logdir fine-tuned-LLM/runs` |
-| **Weights & Biases (W&B)** | Cloud-based experiment tracking and metrics comparison | [View W&B Dashboard → diyor/huggingface](https://wandb.ai/diyor/huggingface) |
-
+This section presents how the fine-tuned **Medical Assistant LLM** was trained, tracked, and evaluated using **Weights & Biases (wandb)**.
 ---
 
 ### ⚙️ Training Configuration
@@ -71,18 +61,23 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 | **Scheduler** | Cosine |
 | **Mixed Precision** | bf16 |
 | **Optimizer** | AdamW |
-| **Reporting Tools** | TensorBoard, Weights & Biases |
+| **Reporting Tools** | wandb ai |
 
 ---
 
 ### 📊 Visualization Examples
 **Evaluation Metrics**
+
 ![Evaluation Metrics](assets/metrics/evals.png)
 ![Evaluation Metrics](assets/metrics/evals1.png)
+
 **Training Dynamics**
+
 ![Training Dynamics](assets/metrics/train.png.)
 ![Training Dynamics](assets/metrics/train1.png)
+
 **System Performance**
+
 ![System Performance](assets/metrics/system.png)
 ![System Performance](assets/metrics/system1.png)
 ![System Performance](assets/metrics/system2.png)
@@ -90,13 +85,7 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 ---
 
 ### 🧭 How to Reproduce
-
-### Tensorboard
-```bash
-# View local training metrics
-tensorboard --logdir fine-tuned-LLM
-```
-### Wandb 
+**Wandb**
 ```bash
 open https://wandb.ai/diyor/huggingface
 ```
