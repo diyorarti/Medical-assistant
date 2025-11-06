@@ -1,7 +1,7 @@
 # 🧠Fine-Tuned Medical Assistant LLM API
 
 An intelligent **Medical Assistant** powered by fine-tuning **Large Language Model (LLM)** that helps users answer medical-related questions with **reasoning-based explanations**.  
-[The Med-Assistant LLM](https://huggingface.co/diyorarti/med-mixed-merged) is fine-tuned on the [dataset](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com) on Render.
+[The Med-Assistant LLM](https://huggingface.co/diyorarti/med-mixed-merged) is fine-tuned on the [dataset](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com) on Render.
 
 ---
 
@@ -38,6 +38,28 @@ This combination helps the model balance concise answers with deeper reasoning c
 - **Fine-tuned dataset:** [FreedomIntelligence/medical-o1-reasoning-SFT](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT)  
 - **Fine-tuned model:** [diyorarti/med-mixed-merged](https://huggingface.co/diyorarti/med-mixed-merged)
 ---
+
+## 🔄 How the API Works
+
+The Medical Assistant API connects a FastAPI backend with a fine-tuned Large Language Model (LLM) hosted on Hugging Face.
+
+1. **User sends a request** → A client (like `curl`, Postman, or frontend app) sends a POST request to the `/v1/generate` or `/v1/chat/completions` endpoint with a medical query.
+2. **API processes the input** → FastAPI receives the request and forwards the prompt to the Hugging Face Inference Endpoint using your `HF_API_TOKEN`.
+3. **Model reasoning** → The fine-tuned model (`diyorarti/med-mixed-merged`) generates both reasoning steps and the final medical answer.
+4. **Response returned** → The API formats the model’s output into JSON and sends it back to the user for display or further use.
+
+📘 Example request:
+```bash
+# request
+curl -X POST "https://medical-assistant-c3n1.onrender.com/v1/generate" \
+-H "Content-Type: application/json" \
+-d '{"prompt": "What are the early symptoms of diabetes?"}'
+
+# llm answer 
+{
+  "response": "Early symptoms include frequent urination, excessive thirst, fatigue, and unexplained weight loss."
+}
+```
 
 ## ⚙️ API Endpoints
 
@@ -80,12 +102,9 @@ git clone https://github.com/diyorarti/Medical-assistant.git
 cd Medical-assistant
 
 # Build Docker image
-```bash
 docker build -t medical-llm-api:latest .
-```
 
 # Run container
-```bash
 docker run --rm -p 8000:8000 -e HF_API_TOKEN=hf_******************************** -e API_KEY=****** medical-llm-api:latest
 ```
 
