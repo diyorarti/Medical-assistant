@@ -71,10 +71,10 @@ The following visualizations summarize the model’s **evaluation metrics**, **t
 
 | Metric | Visualization |
 |---------|----------------|
-| **Eval Steps per Second** | ![Eval Steps per Second](assets/metrics/evals.png) |
-| **Eval Samples per Second** | ![Eval Samples per Second](assets/metrics/evals1.png) |
+| **Eva** | ![Eval Steps per Second](assets/metrics/evals.png) |
+| **Eval** | ![Eval Samples per Second](assets/metrics/evals1.png) |
 
-> Evaluation plots track validation throughput and model efficiency during inference.
+> Evaluation plots monitor the model’s performance during validation — including processing speed (steps/s, samples/s), accuracy, loss, and entropy — to assess both efficiency and generalization quality during inference.
 
 ---
 
@@ -82,10 +82,10 @@ The following visualizations summarize the model’s **evaluation metrics**, **t
 
 | Metric | Visualization |
 |---------|----------------|
-| **Train Loss** | ![Train Loss](assets/metrics/train.png) |
-| **Train Accuracy** | ![Train Accuracy](assets/metrics/train1.png) |
+| **Train** | ![Train Loss](assets/metrics/train.png) |
+| **Train** | ![Train Accuracy](assets/metrics/train1.png) |
 
-> Training metrics confirm **smooth convergence** and **stable accuracy improvement**.
+> Training plots display the model’s learning progress across steps and epochs — including loss reduction, accuracy improvement, gradient stability, and learning rate decay. The consistent downward trend in loss and steady accuracy curve confirm effective fine-tuning and convergence.
 
 ---
 
@@ -98,16 +98,16 @@ The following visualizations summarize the model’s **evaluation metrics**, **t
 | **CPU & Memory Usage** | ![System Metrics 3](assets/metrics/system2.png) |
 | **Overall Runtime Stability** | ![System Metrics 4](assets/metrics/system3.png) |
 
-> System metrics indicate **efficient GPU utilization** and **no hardware bottlenecks** during training.
+> The system monitoring plots track GPU and CPU resource utilization throughout training. They help ensure stable hardware performance and efficient computation during fine-tuning.
 
 ---
 
-### 💡 Insights
+### 🧠 Insights
 
-- The **training loss** steadily decreased while **accuracy** improved.  
-- **Evaluation speed** remained consistent across validation steps.  
-- **System resources** (GPU, CPU, memory) were utilized efficiently throughout training.  
-- The model achieved **stable convergence** within a single epoch.
+- The **training loss** consistently declined, accompanied by a steady rise in **mean token accuracy**, indicating effective learning and parameter optimization.  
+- **Evaluation throughput** (steps and samples per second) remained stable across validation runs, confirming consistent inference efficiency.  
+- **System utilization metrics** (**GPU**, **CPU**, and **memory**) showed balanced resource consumption without thermal or performance bottlenecks.  
+- The model reached **stable convergence within a single epoch**, demonstrating strong fine-tuning efficiency and well-chosen hyperparameters.  
 
 ---
 
