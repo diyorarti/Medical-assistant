@@ -1,16 +1,15 @@
-# 🧠 Medical Assistant API
+# 🧠Fine-Tuned Medical Assistant LLM API
 
-An intelligent **Medical Assistant** powered by a fine-tuned **Large Language Model (LLM)** that helps users answer medical-related questions with **reasoning-based explanations**.  
-[The Med-Assistant](https://huggingface.co/diyorarti/med-mixed-merged) is fine-tuned on the [*FreedomIntelligence/medical-o1-reasoning-SFT*](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com).
+An intelligent **Medical Assistant** powered by fine-tuning **Large Language Model (LLM)** that helps users answer medical-related questions with **reasoning-based explanations**.  
+[The Med-Assistant LLM](https://huggingface.co/diyorarti/med-mixed-merged) is fine-tuned on the [dataset](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) dataset and deployed as [a production-ready API](https://medical-assistant-c3n1.onrender.com) on Render.
 
 ---
 
 ## 🚀 Project Overview
 
-This project aims to build a reliable **medical question-answering system** using a fine-tuned version of **Qwen/Qwen2.5-3B-Instruct**.  
-The model provides **chain-of-thought** reasoning for complex medical queries, offering users both clear answers and transparent reasoning when applicable.
+This project aims to build a reliable **medical question & answerin through reasoning-based explanations** using a fine-tuned version of **Qwen/Qwen2.5-3B-Instruct**. The model provides **chain-of-thought** reasoning for complex medical queries, offering users both clear answers and transparent reasoning when applicable.
 
-**Training Objective:**  
+### **Training Objective:**  
 A **mixed approach**:
 - 70% of the training data contains **only the final answer**
 - 30% includes **reasoning + final answer**
@@ -38,9 +37,6 @@ This combination helps the model balance concise answers with deeper reasoning c
 - **Base model:** [Qwen/Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct)  
 - **Fine-tuned dataset:** [FreedomIntelligence/medical-o1-reasoning-SFT](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT)  
 - **Fine-tuned model:** [diyorarti/med-mixed-merged](https://huggingface.co/diyorarti/med-mixed-merged)
-
-Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
-
 ---
 
 ## ⚙️ API Endpoints
@@ -51,10 +47,6 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
 | `GET` | `/health` | Health check |
 | `POST` | `/v1/generate` | Generate model output |
 | `POST` | `/v1/chat/completions` | Chat completion endpoint |
-
-📘 **Swagger Documentation:**  
-👉 [View API Docs](https://medical-assistant-c3n1.onrender.com/docs)
-
 ---
 
 ## 🐳 Deployment
@@ -63,10 +55,10 @@ Model is hosted on **Hugging Face Inference Endpoints** for real-time responses.
    🔗 [Model Link](https://huggingface.co/diyorarti/med-mixed-merged)
 
 2. Model hosted on Hugging Face Inference Endpoints  
-   🔗 [Inference Endpoint]()
+   🔗 [Inference Endpoint]() I can't share the endpoint URL due to security reasons. 
 
 3. Production API developed using **FastAPI** and **Docker**, deployed to **Render**  
-   🔗 [Live API](https://medical-assistant-c3n1.onrender.com)
+   🔗 [Live API](https://medical-assistant-c3n1.onrender.com) now, I have paused LLM. 
 
 ---
 
