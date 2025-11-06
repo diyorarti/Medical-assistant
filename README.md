@@ -75,24 +75,10 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 
 ---
 
-### 📈 Evaluation Metrics
-
-| Metric | Description | Observation |
-|---------|--------------|--------------|
-| **eval/loss** | Cross-entropy loss on validation set | Decreased steadily throughout training |
-| **eval/mean_token_accuracy** | Token-level prediction accuracy | Gradually improved per step |
-| **eval/runtime** | Time (s) per evaluation step | ~100–120 seconds |
-| **eval/samples_per_second** | Processing throughput | ~25–30 samples/sec |
-| **eval/steps_per_second** | Step speed during evaluation | ~3–4 steps/sec |
-
-> 🔹 Metrics logged and visualized through **wandb.ai** during training runs.  
-> *(Example run: `balmy-sun-20` in Diyorarti’s workspace)*
-
----
-
 ### 📊 Visualization Examples
-[**Evaluation Metrics**](assets/metrics/evals.png)
-[**Evaluation Metrics**](assets/metrics/evals1.png)
+** Evaluation **
+![Evaluation Metrics](assets/metrics/evals.png)
+![Evaluation Metrics](assets/metrics/evals1.png)
 
 ---
 
@@ -191,7 +177,7 @@ curl -X 'POST' \
 
 ---
 
-## 📸 Screenshot
+## 📸 API Screenshot
 
 ![Swagger UI Screenshot](assets/render-api.png)
 ![Swagger UI Screenshot](assets/running-local.png)
