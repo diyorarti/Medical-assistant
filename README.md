@@ -76,10 +76,17 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 ---
 
 ### 📊 Visualization Examples
-** Evaluation **
+**Evaluation Metrics**
 ![Evaluation Metrics](assets/metrics/evals.png)
 ![Evaluation Metrics](assets/metrics/evals1.png)
-
+**Training Dynamics**
+![Training Dynamics](assets/metrics/train.png.)
+![Training Dynamics](assets/metrics/train1.png)
+**System Performance**
+![System Performance](assets/metrics/system.png)
+![System Performance](assets/metrics/system1.png)
+![System Performance](assets/metrics/system2.png)
+![System Performance](assets/metrics/system3.png)
 ---
 
 ### 🧭 How to Reproduce
