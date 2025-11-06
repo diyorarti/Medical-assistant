@@ -44,20 +44,58 @@ This combination helps the model balance concise answers with deeper reasoning c
 The Medical Assistant API connects a FastAPI backend with a fine-tuned Large Language Model (LLM) hosted on Hugging Face.
 
 1. **User sends a request** → A client (like `curl`, Postman, or frontend app) sends a POST request to the `/v1/generate` or `/v1/chat/completions` endpoint with a medical query.
-2. **API processes the input** → FastAPI receives the request and forwards the prompt to the Hugging Face Inference Endpoint using your `HF_API_TOKEN`.
+2. **API processes the input** → FastAPI receives the request and forwards the prompt to the Hugging Face Inference Endpoint using `HF_API_TOKEN` AND `HF_Endpoint_Url`.
 3. **Model reasoning** → The fine-tuned model (`diyorarti/med-mixed-merged`) generates both reasoning steps and the final medical answer.
 4. **Response returned** → The API formats the model’s output into JSON and sends it back to the user for display or further use.
 
 📘 Example request:
 ```bash
-# request
-curl -X POST "https://medical-assistant-c3n1.onrender.com/v1/generate" \
--H "Content-Type: application/json" \
--d '{"prompt": "What are the early symptoms of diabetes?"}'
-
+# request for generate endpoint
+curl -X 'POST' \
+  'https://medical-assistant-c3n1.onrender.com/v1/generate' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "prompt": "Given the symptoms of sudden weakness in the left arm and leg",
+  "max_new_tokens": 128,
+  "temperature": 0.7,
+  "top_p": 0.9
+}'
 # llm answer 
 {
-  "response": "Early symptoms include frequent urination, excessive thirst, fatigue, and unexplained weight loss."
+  "output_text": "Based on the symptoms of sudden weakness in the left arm and leg, recent long-distance travel, and the presence of swollen and tender right lower leg, it's important to consider potential issues that could arise from these factors. One possible cardiac abnormality to consider is deep vein thrombosis (DVT), which is a condition where a blood clot forms in the deep veins of the leg. This can cause swelling, tenderness, and even pain in the leg. The sudden weakness in the left arm and leg could be due to a stroke or transient ischemic attack (TIA), possibly related to reduced blood flow if there is a clot."
+}
+
+# request for chat/completion endpoint
+curl -X 'POST' \
+  'https://medical-assistant-c3n1.onrender.com/v1/chat/completions' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "model": "your-model",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Given the symptoms of sudden weakness in the left arm and leg"
+    }
+  ],
+  "max_tokens": 256,
+  "temperature": 0.7,
+  "top_p": 0.9
+}'
+# llm answer 
+{
+  "id": "chatcmpl-1",
+  "object": "chat.completion",
+  "model": "your-model",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Reasoning (brief): Okay, let's think about this. The symptoms are pretty specific. There's sudden weakness on the left side of the body, which is the kind of thing you'd expect with a stroke. And then there's the swollen and tender right leg. Hmm, that definitely makes me think of deep vein thrombosis, or DVT. Now, why DVT? Well, it's not every day that you get a stroke and a swollen leg at the same time, so there must be some connection.\n\nNow, what could cause both of these? Could it be something related to the heart? Let's see, DVT is often linked to heart issues, especially with the heart's ability to pump blood effectively. There's something called atrial fibrillation, and that's known to cause clotting issues, which could lead to DVT. But wait, could there be more to it? I mean, atrial fibrillation is pretty common, but it's not the only heart abnormality that might cause these symptoms. There's also something called mitral stenosis. That's when the mitral valve is narrowed, and it can lead to heart failure and clot formation, which could cause strokes and DVTs."
+      }
+    }
+  ]
 }
 ```
 
