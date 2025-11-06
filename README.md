@@ -43,7 +43,9 @@ This combination helps the model balance concise answers with deeper reasoning c
 
 ## 📊 Model Performance & Evaluation
 
-This section presents how the fine-tuned **Medical Assistant LLM** was trained, tracked, and evaluated using **Weights & Biases (wandb)**.
+The fine-tuned **Medical Assistant LLM** was trained and evaluated using **Weights & Biases (wandb)**.  
+The following visualizations summarize the model’s **evaluation metrics**, **training dynamics**, and **system performance**.
+
 ---
 
 ### ⚙️ Training Configuration
@@ -61,35 +63,62 @@ This section presents how the fine-tuned **Medical Assistant LLM** was trained, 
 | **Scheduler** | Cosine |
 | **Mixed Precision** | bf16 |
 | **Optimizer** | AdamW |
-| **Reporting Tools** | wandb ai |
+| **Reporting Tools** | TensorBoard, Weights & Biases |
 
 ---
 
-### 📊 Visualization Examples
-**Evaluation Metrics**
+### 📈 Evaluation Metrics
 
-![Evaluation Metrics](assets/metrics/evals.png)
-![Evaluation Metrics](assets/metrics/evals1.png)
+| Metric | Visualization |
+|---------|----------------|
+| **Eval Steps per Second** | ![Eval Steps per Second](assets/metrics/evals.png) |
+| **Eval Samples per Second** | ![Eval Samples per Second](assets/metrics/evals1.png) |
 
-**Training Dynamics**
+> Evaluation plots track validation throughput and model efficiency during inference.
 
-![Training Dynamics](assets/metrics/train.png.)
-![Training Dynamics](assets/metrics/train1.png)
-
-**System Performance**
-
-![System Performance](assets/metrics/system.png)
-![System Performance](assets/metrics/system1.png)
-![System Performance](assets/metrics/system2.png)
-![System Performance](assets/metrics/system3.png)
 ---
 
-### 🧭 How to Reproduce
-**Wandb**
-open following url
-```bash
-https://wandb.ai/diyor/huggingface
-```
+### 🧩 Training Dynamics
+
+| Metric | Visualization |
+|---------|----------------|
+| **Train Loss** | ![Train Loss](assets/metrics/train.png) |
+| **Train Accuracy** | ![Train Accuracy](assets/metrics/train1.png) |
+
+> Training metrics confirm **smooth convergence** and **stable accuracy improvement**.
+
+---
+
+### ⚙️ System Performance
+
+| Metric | Visualization |
+|---------|----------------|
+| **GPU Utilization & Temperature** | ![System Metrics 1](assets/metrics/system.png) |
+| **GPU Power Usage** | ![System Metrics 2](assets/metrics/system1.png) |
+| **CPU & Memory Usage** | ![System Metrics 3](assets/metrics/system2.png) |
+| **Overall Runtime Stability** | ![System Metrics 4](assets/metrics/system3.png) |
+
+> System metrics indicate **efficient GPU utilization** and **no hardware bottlenecks** during training.
+
+---
+
+### 💡 Insights
+
+- The **training loss** steadily decreased while **accuracy** improved.  
+- **Evaluation speed** remained consistent across validation steps.  
+- **System resources** (GPU, CPU, memory) were utilized efficiently throughout training.  
+- The model achieved **stable convergence** within a single epoch.
+
+---
+
+### 🧭 Access the Full Dashboard
+
+You can view the full experiment logs, metrics, and visualizations here:
+
+🔗 [**Weights & Biases Dashboard → diyor/huggingface**](https://wandb.ai/diyor/huggingface)
+
+---
+
 
 ## 🔄 How the API Works
 
